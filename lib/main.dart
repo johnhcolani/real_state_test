@@ -5,22 +5,30 @@ import 'package:real_state_app/features/fearture_one/presentation_layer/blocs/si
 
 import 'package:real_state_app/splash_screen.dart';
 
-
 import 'locator.dart';
 
 void main() async {
   // init locator
   await setup();
   runApp(
-     MaterialApp(
+    const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MultiBlocProvider(
-       providers: [
-         BlocProvider(create: (_)=> locator<SimpsonsBloc>()),
-
-       ],
-        child: const SplashScreen(),
-      ),
+      home: MainApp(),
     ),
   );
+}
+
+class MainApp extends StatelessWidget {
+  const MainApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider<SimpsonsBloc>(
+      create: (_) => locator<SimpsonsBloc>(),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+      ),
+    );
+  }
 }

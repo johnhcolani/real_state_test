@@ -5,16 +5,12 @@ import 'package:real_state_app/features/fearture_one/domain_layer/repositories/s
 import 'package:real_state_app/features/fearture_one/domain_layer/usecases/get_sympsons_usecase.dart';
 import 'package:real_state_app/features/fearture_one/presentation_layer/blocs/simpsons_bloc.dart';
 
-GetIt locator = GetIt.instance;
+final locator = GetIt.instance;
 
 setup() {
   locator.registerSingleton<ApiProvider>(ApiProvider());
-// repository
-  locator
-      .registerSingleton<SimpsonsRepository>(SimpsonsRepositoryImpl(locator()));
-  // use cases
+  locator.registerSingleton<SimpsonsRepository>(SimpsonsRepositoryImpl(locator()));
   locator.registerSingleton<GetSimpsonsUseCase>(GetSimpsonsUseCase(locator()));
-
-  // bloc
   locator.registerSingleton<SimpsonsBloc>(SimpsonsBloc(locator()));
+  // Register other blocs and dependencies if needed
 }

@@ -15,16 +15,15 @@ class SimpsonsBloc extends Bloc<SimpsonsEvent, SimpsonsState> {
 
   SimpsonsBloc(this.getSimpsonsUseCase) : super(SimpsonsState(simpsonsStatus: SimpsonsLoading())) {
     on<LoadSimpsonsEvent>((event, emit) async {
-    emit(state.copyWith(newSimpsonsStatus: SimpsonsLoading()));
+      emit(state.copyWith(newSimpsonsStatus: SimpsonsLoading()));
 
-    DataState dataState= await getSimpsonsUseCase(event.toString());
-    if(dataState is DataSuccess){
-      emit(state.copyWith(newSimpsonsStatus: SimpsonsCompleted(dataState.data)));
-    }
-    if(dataState is DataFailed){
-     emit(state.copyWith(newSimpsonsStatus: SimpsonsError(dataState.error!)));
-    }
-
+      DataState dataState = await getSimpsonsUseCase(event.toString());
+      if (dataState is DataSuccess) {
+        emit(state.copyWith(newSimpsonsStatus: SimpsonsCompleted(dataState.data)));
+      }
+      if (dataState is DataFailed) {
+        emit(state.copyWith(newSimpsonsStatus: SimpsonsError(dataState.error!)));
+      }
     });
   }
 }
