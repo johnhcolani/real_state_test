@@ -69,7 +69,7 @@ class SimpsonsModel extends SimpsonsEntity {
         );
 
   factory SimpsonsModel.fromJson(Map<String, dynamic> json) {
-   var results = <dynamic>[];
+    var results = <dynamic>[];
     if (json['Results'] != null) {
       json['Results'].forEach((v) {
         results.add(v);
@@ -83,38 +83,29 @@ class SimpsonsModel extends SimpsonsEntity {
       });
     }
     return SimpsonsModel(
-      abstract: json['Abstract'],
-      abstractSource: json['AbstractSource'],
-      abstractText: json['AbstractText'],
-      abstractURL: json['AbstractURL'],
-      answer: json['Answer'],
-      answerType: json['AnswerType'],
-      definition: json['Definition'],
-      definitionSource: json['DefinitionSource'],
-      definitionURL: json['DefinitionURL'],
-      entity: json['Entity'],
-      heading: json['Heading'],
-      image: json['Image'],
-      imageHeight: json['ImageHeight'],
-      imageIsLogo: json['ImageIsLogo'],
-      imageWidth: json['ImageWidth'],
-      infobox: json['Infobox'],
-      redirect: json['Redirect'],
-      relatedTopics: relatedTopics,
-      results: results,
-      type: json['Type'],
-      meta: json['meta'] != null ? Meta.fromJson(json['meta']) : null
-
-
-    );
-
-
+        abstract: json['Abstract'],
+        abstractSource: json['AbstractSource'],
+        abstractText: json['AbstractText'],
+        abstractURL: json['AbstractURL'],
+        answer: json['Answer'],
+        answerType: json['AnswerType'],
+        definition: json['Definition'],
+        definitionSource: json['DefinitionSource'],
+        definitionURL: json['DefinitionURL'],
+        entity: json['Entity'],
+        heading: json['Heading'],
+        image: json['Image'],
+        imageHeight: json['ImageHeight'],
+        imageIsLogo: json['ImageIsLogo'],
+        imageWidth: json['ImageWidth'],
+        infobox: json['Infobox'],
+        redirect: json['Redirect'],
+        relatedTopics: relatedTopics,
+        results: results,
+        type: json['Type'],
+        meta: json['meta'] != null ? Meta.fromJson(json['meta']) : null);
   }
-
-
 }
-
-
 
 /// attribution : null
 /// blockgroup : null
@@ -198,9 +189,7 @@ class Meta {
     isStackexchange = json['is_stackexchange'];
     jsCallbackName = json['js_callback_name'];
     liveDate = json['live_date'];
-    maintainer = json['maintainer'] != null
-        ? Maintainer.fromJson(json['maintainer'])
-        : null;
+    maintainer = json['maintainer'] != null ? Maintainer.fromJson(json['maintainer']) : null;
     name = json['name'];
     perlModule = json['perl_module'];
     producer = json['producer'];
@@ -210,9 +199,7 @@ class Meta {
     srcDomain = json['src_domain'];
     srcId = json['src_id'];
     srcName = json['src_name'];
-    srcOptions = json['src_options'] != null
-        ? SrcOptions.fromJson(json['src_options'])
-        : null;
+    srcOptions = json['src_options'] != null ? SrcOptions.fromJson(json['src_options']) : null;
     srcUrl = json['src_url'];
     status = json['status'];
     tab = json['tab'];

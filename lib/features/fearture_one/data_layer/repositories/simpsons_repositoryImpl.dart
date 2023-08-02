@@ -13,8 +13,8 @@ class SimpsonsRepositoryImpl extends SimpsonsRepository {
   @override
   Future<DataState<SimpsonsEntity>> fetchSimpsonsData() async {
     try {
-      Response response =
-          await apiProvider.callSimpsonsData();
+      Response response = await apiProvider.callSimpsonsData();
+
       if (response.statusCode == 200) {
         SimpsonsEntity simpsonsEntity = SimpsonsModel.fromJson(response.data);
         return DataSuccess(simpsonsEntity);
